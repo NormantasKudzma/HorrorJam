@@ -15,6 +15,7 @@ public class Game extends BaseGame {
 	public State state;
 	public Platform platform;
 	private ArrayList<Vector2> clickList;
+	private static Game instance;
 	
 	public int getBuild() {
 		return platform.getBuild();
@@ -27,6 +28,7 @@ public class Game extends BaseGame {
 	@Override
 	public void init() {
 		super.init();
+		instance = this;
 		
 		clickList = new ArrayList<>();
 		state = new GameState(this);
@@ -55,5 +57,9 @@ public class Game extends BaseGame {
 		}
 		
 		state.update(deltaTime);
+	}
+
+	public static Game get(){
+		return instance;
 	}
 }
