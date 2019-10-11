@@ -1,4 +1,4 @@
-package com.nk.m3.android;
+package com.jam.horrorjam.android;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -10,9 +10,8 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.nk.m3.BuildConfig;
-import com.nk.m3.game.HighScoreManager;
-import com.nk.m3.main.Game;
+import com.jam.horrorjam.BuildConfig;
+import com.jam.horrorjam.Game;
 import com.ovl.engine.EngineConfig;
 import com.ovl.engine.OverloadEngine;
 import com.ovl.engine.android.OverloadEngineAndroid;
@@ -25,8 +24,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		HighScoreManager.saver = new HighScoreSaverAndroid(this);
+
 		game.platform = new Game.Platform(){
 			public void init(){}
 
