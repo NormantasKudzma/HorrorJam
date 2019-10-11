@@ -50,11 +50,17 @@ public class Mouse extends GameObject {
 
 	private IntPair[] makeMoves(){
 		return Arrays.shuffle(new IntPair[]{
-			new IntPair(this.position.x + 1, this.position.y + 0),
-			new IntPair(this.position.x - 1, this.position.y + 0),
-			new IntPair(this.position.x + 0, this.position.y + 1),
-			new IntPair(this.position.x + 0, this.position.y - 1),
+			clamp(new IntPair(this.position.x + 1, this.position.y + 0)),
+			clamp(new IntPair(this.position.x - 1, this.position.y + 0)),
+			clamp(new IntPair(this.position.x + 0, this.position.y + 1)),
+			clamp(new IntPair(this.position.x + 0, this.position.y - 1)),
 		});
+	}
+
+	private IntPair clamp(IntPair pair){
+		pair.x = Math.min(Math.max(pair.x, 0), grid.getWidth() - 1);
+		pair.y = Math.min(Math.max(pair.y, 0), grid.getHeight() - 1);
+		return pair;
 	}
 
 	private boolean isMoveValid(IntPair move){
