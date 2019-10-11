@@ -5,7 +5,7 @@ import com.ovl.utils.OverloadRandom;
 import java.util.ArrayList;
 
 public class Arrays {
-	public static <T> void shuffle(T array[]){
+	public static <T> T[] shuffle(T array[]){
 		int counter = array.length;
 
 		while (counter > 0) {
@@ -17,5 +17,7 @@ public class Arrays {
 			array[counter] = array[index];
 			array[index] = temp;
 		}
+
+		return array;
 	}
 }
