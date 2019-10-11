@@ -33,10 +33,11 @@ public class Mouse extends GameObject {
 
 		waitForNextMove();
 		IntPair[] moves = makeMoves();
-		for (IntPair move : moves){
-			if (isMoveValid(move)){
+		for (IntPair nextMove : moves){
+			if (isMoveValid(nextMove)){
 				grid.clear(position.x, position.y);
-				grid.setGridElement(move.x, move.y, Grid.ELEMENTS.RAT);
+				position = nextMove;
+				grid.setGridElement(position.x, position.y, Grid.ELEMENTS.RAT);
 				setPosition(grid.toScreenCoordinates(position.x, position.y));
 				break;
 			}
